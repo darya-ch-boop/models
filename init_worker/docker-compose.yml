@@ -9,7 +9,7 @@ services:
       test: ["CMD", "curl", "-f", "http://localhost:8000/healthcheck"]
       interval: 10s
       timeout: 5s
-      retries: 12
+      retries: 20
     volumes:
       - ./app.py:/app/app.py
       - ./birnn_model_optimized.pth:/app/birnn_model_optimized.pth
