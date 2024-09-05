@@ -2,7 +2,7 @@ services:
   inference:
     container_name: inference-basic-eth-pred
     build: .
-    command: /bin/sh -c "pip install -r /app/requirements.txt && python -u /app/app.py"
+    command: /bin/sh -c "apt-get update && apt-get install -y curl && pip install -r /app/requirements.txt && python -u /app/app.py"
     ports:
       - "8000:8000"
     healthcheck:
