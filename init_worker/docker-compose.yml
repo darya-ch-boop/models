@@ -1,0 +1,32 @@
+services:
+  inference:
+    container_name: inference-basic-eth-pred
+    build: .
+    command: /bin/sh -c "pip install -r /app/requirements.txt && python -u /app/app.py"
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/healthcheck"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+    volumes:
+      - ./app.py:/app/app.py
+      - ./birnn_model_optimized.pth:/app/birnn_model_optimized.pth
+      - ./requirements.txt:/app/requirements.txt
+      - ./inference-data:/app/data
+
+  worker:
+    container_name: worker
+    image: alloranetwork/allora-offchain-node:latest
+    volumes:
+      - ./worker-data:/data
+    depends_on:
+      inference:
+        condition: service_healthy
+    env_file:
+      - ./worker-data/env_file
+
+volumes:
+  inference-data:
+  worker-data:
