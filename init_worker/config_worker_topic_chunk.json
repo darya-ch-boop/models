@@ -1,0 +1,9 @@
+{
+  "topicId": 1,
+  "inferenceEntrypointName": "api-worker-reputer",
+  "loopSeconds": 5,
+  "parameters": {
+    "InferenceEndpoint": "http://localhost:8000/inference/{Token}",
+    "Token": "ETH"
+  }
+}

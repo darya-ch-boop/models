@@ -1,0 +1,17 @@
+{
+  "meme": {
+    "model_url": "https://github.com/darya-ch-boop/1h_meme_model/raw/main/birnn_model_optimized.pth",
+    "app_url": "https://raw.githubusercontent.com/darya-ch-boop/1h_meme_model/main/app.py",
+    "requirements.txt": "https://raw.githubusercontent.com/darya-ch-boop/1h_meme_model/main/requirements.txt"
+  },
+  "15m": {
+    "model_url": "https://github.com/darya-ch-boop/15m_model/raw/main/birnn_model_optimized.pth",
+    "app_url": "https://raw.githubusercontent.com/darya-ch-boop/15m_model/main/app.py",
+    "requirements.txt": "https://raw.githubusercontent.com/darya-ch-boop/15m_model/main/requirements.txt"
+  },
+  "1d": {
+    "model_url": "https://github.com/darya-ch-boop/1d_model/raw/main/birnn_model_optimized.pth",
+    "app_url": "https://raw.githubusercontent.com/darya-ch-boop/1d_model/main/app.py",
+    "requirements.txt": "https://raw.githubusercontent.com/darya-ch-boop/1d_model/main/requirements.txt"
+  }
+}
