@@ -2,6 +2,8 @@ import json
 import subprocess
 from pathlib import Path
 
+
+PORT = 8000
 CONFIG_TEMPLATE_PATH = Path("config_template.json")
 CONFIG_WORKER_TOPIC_CHUNKS_PATH = Path("config_worker_topic_chunk.json")
 GITHUB_URLS_PATH = Path("github-urls.json")
@@ -207,7 +209,7 @@ if __name__ == "__main__":
             exit(1)
         worker_chunk["topicId"] = int(topic["topic_id"])
         worker_chunk["parameters"]["Token"] = topic["arg"]
-        worker_chunk["parameters"]["InferenceEndpoint"] = f"http://{node_ip}:8000/inference/" + "{Token}"
+        worker_chunk["parameters"]["InferenceEndpoint"] = f"http://{node_ip}:{PORT}/inference/" + "{Token}"
         worker_chunks.append(worker_chunk)
 
     config["worker"] = worker_chunks
