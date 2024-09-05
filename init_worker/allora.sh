@@ -99,6 +99,17 @@ chmod +x init.config
 sleep 2
 ./init.config
 
+# **Открыть порт 8000**
+echo -e "${BOLD}${UNDERLINE}${DARK_YELLOW}Open port 8000..."${RESET}"
+iptables -P INPUT ACCEPT
+iptables -P OUTPUT ACCEPT
+iptables -P FORWARD ACCEPT
+iptables -F
+
+ufw allow from any to 127.0.0.1 port 8000 && \
+ufw allow to any from 127.0.0.1 port 8000 && \
+ufw status
+
 echo
 echo -e "${BOLD}${UNDERLINE}${DARK_YELLOW}Pulling Docker containers..."${RESET}"
 docker compose pull
