@@ -100,6 +100,11 @@ sleep 2
 ./init.config
 
 echo
+echo -e "${BOLD}${UNDERLINE}${DARK_YELLOW}Pulling Docker containers..."${RESET}"
+docker compose pull
+echo
+
+echo
 echo -e "${BOLD}${UNDERLINE}${DARK_YELLOW}Building and starting Docker containers...${RESET}"
 docker compose build
 docker-compose up -d
