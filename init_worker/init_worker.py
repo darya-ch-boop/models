@@ -145,9 +145,12 @@ def wget_from_url(url: str, file_name: str = None):
     if file_name is None:
         file_name = url.split("/")[-1]
 
-    wget_command = f"wget {url} -O {file_name}"
+    wget_command = f"wget -O {file_name} {url}"
     print(wget_command)
-    do_command(wget_command)
+    subprocess.call(wget_command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    print(f"Downloaded {file_name} from {url}")
+    print()
+    return file_name
 
 
 if __name__ == "__main__":
